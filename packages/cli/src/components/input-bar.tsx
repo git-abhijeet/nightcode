@@ -109,7 +109,7 @@ export function InputBar({ onSubmit, disabled = false }: Props) {
                             <CommandMenu query={commandQuery} selectedIndex={selectedIndex} scrollRef={scrollRef} onSelect={setSelectedIndex} onExecute={handleCommandExecute}/>
                         </box>
                     )}
-                    <textarea ref={textareaRef} focused={!disabled} keyBindings={TEXTAREA_KEY_BINDINGS} onContentChange={handleTextareaContentChange} placeholder={`Ask anyhting... "Fix a bug in the database"`}/>
+                    <textarea ref={textareaRef} focused={!disabled} keyBindings={TEXTAREA_KEY_BINDINGS} onContentChange={handleTextareaContentChange} placeholder={`Ask anything... "Fix a bug in the database"`}/>
                     <StatusBar />
                 </box>
             </box>
