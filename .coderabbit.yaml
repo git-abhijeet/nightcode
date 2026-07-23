@@ -1,0 +1,35 @@
+language: "en-US"
+tone_instructions: "Be concise. Flag React hook dependency issues and TypeScript type gaps."
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - "main"
+
+  path_filters:
+    - "!**/node_modules/**"
+    - "!bun.lock"
+    - "!**/*.lock"
+
+  path_instructions:
+    - path: "packages/cli/src/components/**"
+      instructions: |
+        This is a terminal UI built with @opentui/react (not browser React).
+        JSX elements like <box>, <text>, <textarea>, <scrollbox>, <ascii-font> are custom terminal primitives — not HTML elements.
+        Do not flag unknown JSX elements as errors.
+        Focus on: React hook deps, TypeScript correctness, component prop contracts.
+
+    - path: "packages/cli/src/components/command-menu/**"
+      instructions: |
+        This is a slash-command palette system.
+        Commands in commands.tsx without an action field are intentional stubs for future implementation — do not flag as incomplete.
+
+chat:
+  auto_reply: true

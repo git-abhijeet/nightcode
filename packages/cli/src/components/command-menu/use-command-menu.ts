@@ -28,11 +28,11 @@ export function useCommandMenu(): UseCommandMenuReturn {
         setTextValue(text);
         setSelectedIndex(0);
 
-        // Jump back tot he top of the list when the user types a new character
+        // Jump back to the top of the list when the user types a new character
         const scrollbox = scrollRef.current;
         if (scrollbox) {
-            scrollbox.scrollTo(0)
-        }
+            scrollbox.scrollTo(0);
+        };
 
         const prefix = text.startsWith("/") ? text.slice(1) : null;
         if(prefix !== null && !prefix.includes(" ")) {
@@ -90,4 +90,4 @@ export function useCommandMenu(): UseCommandMenuReturn {
         }
     });
     return { showCommandMenu, commandQuery, selectedIndex, scrollRef, handleContentChange, resolveCommand, setSelectedIndex };
-}; 
+};
